@@ -1,4 +1,4 @@
-version: "3.9"
+﻿version: "3.9"
 
 services:
   postgres:
@@ -11,12 +11,12 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./infrastructure/postgres/init-databases.sql:/docker-entrypoint-initdb.d/init-databases.sql:ro
     ports:
-      - "5432:5432"
+      - "55432:5432"
 
   redis:
     image: redis:7-alpine
     ports:
-      - "6379:6379"
+      - "56379:6379"
 
   rabbitmq:
     image: rabbitmq:3-management-alpine
@@ -103,7 +103,7 @@ services:
       - payment-service
       - notification-service
     ports:
-      - "8080:8080"
+      - "58080:8080"
 
   telegram-bot:
     build:
@@ -118,3 +118,4 @@ services:
 volumes:
   postgres_data:
   rabbitmq_data:
+
