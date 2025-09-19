@@ -5,13 +5,13 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 
-COPY requirements.txt ./
+COPY services/auth-service/requirements.txt ./requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ../../shared/python /opt/shared
+COPY shared/python /opt/shared
 ENV PYTHONPATH="/app:/opt/shared"
 
-COPY app ./app
+COPY services/auth-service/app ./app
 
 EXPOSE 8000
 
